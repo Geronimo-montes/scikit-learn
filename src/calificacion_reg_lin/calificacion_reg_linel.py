@@ -35,7 +35,7 @@ def run():
 
 
 def graficar(
-    values: List[List[int]],
+    values: List[List[int]]= None,
     prediccion: List[List[int]] = None,
     reg_lin: List[List[float]] = None,
     title="Promedio por Semestre",
@@ -120,8 +120,8 @@ def regresion_lineal(values: List[List[float]], predecir: List[float]):
 
     # GRAFICAMOS TODOS LOS CONUNTOS DE VALORES
     graficar(
-        values=[x, y],
-        prediccion=[x_pred, y_pred],
+        # values=[x, y],
+        # prediccion=[x_pred, y_pred],
         reg_lin=[[x.min(), x.max()], [min_pt, max_pt]],
         ecuacion=ecuacion,
     )
