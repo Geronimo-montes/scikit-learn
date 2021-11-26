@@ -3,23 +3,43 @@
 	"tasks": [
 		{
 			"type": "pipenv",
-			"task": "prac1",
+			"task": "all",
 			"problemMatcher": [],
-			"label": "Practica #1",
+			"label": "Todas las practivas en orden...",
 			"group": {
 				"kind": "build",
-				"isDefault": true
+				"isDefault": true,
+			}
+		},
+		{
+			"type": "pipenv",
+			"task": "prac1",
+			"problemMatcher": [],
+			"label": "Practica #1 Performance Test",
+			"group": {
+				"kind": "build",
+				"isDefault": true,
 			}
 		},
 		{
 			"type": "pipenv",
 			"task": "prac2",
 			"problemMatcher": [],
-			"label": "Practica #2",
+			"label": "Practica #2 Regresion Lineal: Calificación del 9no semestre.",
 			"group": {
 				"kind": "build",
-				"isDefault": true
+				"isDefault": true,
 			}
-		}
+		},
+		{
+			"type": "pipenv",
+			"task": "prac3",
+			"problemMatcher": [],
+			"label": "Practica #3 Clasificador Estudiantes",
+			"group": {
+				"kind": "build",
+				"isDefault": true,
+			}
+		},
 	]
 }

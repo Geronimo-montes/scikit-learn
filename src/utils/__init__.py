@@ -3,7 +3,10 @@
 """
 
 from .load_data import load_dataset
+from .matrix_conf import get_confusion_matrix, plot_CM
 
 __all__ = [
     "load_dataset",
+    "get_confusion_matrix",
+    "plot_CM",
 ]

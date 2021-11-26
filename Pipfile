@@ -18,5 +18,7 @@ python_version = "3.9"
 allow_prereleases = true
 
 [scripts]
+all = "python src/main.py"
 prac1 = "python src/main.py 1"
 prac2 = "python src/main.py 2"
+prac3 = "python src/main.py 3"
