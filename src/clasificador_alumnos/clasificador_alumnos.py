@@ -14,6 +14,8 @@ Instrucciones:
     `4`-Con la mejor configuración, realizar una validación cruzada con 5 pliegues, Mostrar resultados.
 """
 import os
+from re import L
+from matplotlib import pyplot as plot
 import numpy as np
 
 from utils import load_dataset
@@ -65,7 +67,11 @@ def run_clf_alumnos():
         verbose=1,
         scoring="accuracy",
     )
+
     clf.fit(X_train, y_train)
+    params = clf.cv_results_["params"]
+    for index in range(len(params)):
+        print(f"#{index} var_smoothing: {params[index]['var_smoothing']}")
 
     clf_cv = cross_validate(
         estimator=GaussianNB(var_smoothing=clf.best_params_["var_smoothing"]),

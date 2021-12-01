@@ -83,9 +83,8 @@ def plot_CM(
         True: False . Defaults to True.
     """
     if cmap is None:
-        cmap = plt.get_cmap("Set2")
+        cmap = plt.get_cmap("Set3")
 
-    plt.figure(figsize=(6, 4))
     plt.imshow(cm, interpolation="nearest", cmap=cmap)
     plt.title(title)
     plt.colorbar()
@@ -98,15 +97,11 @@ def plot_CM(
     if normalize:
         cm = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis]
 
-    thresh = cm.max() / 1.5 if normalize else cm.max() / 2
-
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        # COLOR DEL TEXTO
-        color = "white" if cm[i, j] > thresh else "black"
         # FORMATO DEACUERDO CON DECIMALES A SIN DECIMALES
         sformat = "{:0.4f}".format(cm[i, j]) if normalize else "{:,}".format(cm[i, j])
         # PLOT
-        plt.text(x=j, y=i, s=sformat, horizontalalignment="center", color=color)
+        plt.text(x=j, y=i, s=sformat, horizontalalignment="center", color="black")
 
     table = plt.table(
         cellText=report,
