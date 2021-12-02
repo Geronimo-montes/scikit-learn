@@ -3,10 +3,10 @@ from sklearn import datasets
 from sklearn.utils import Bunch
 from sklearn.datasets._base import load_csv_data
 
+from .path import PATH_DATA
 
-def _load_file(
-    file_data, columns, file_descr=None, *, return_X_y=False, as_frame=False
-):
+
+def _load_file(file_data, columns, file_descr=None, *, return_X_y=False):
     """Carga el dataset y su descripción a memoria. Realiza llamados a metodos del modulo :mod:`sklearn.datasets` de la libreria :lib:`sklearn`, para cargar los datos de la misma manera que los metodos de carga incluidos en la libreria :lib:`sklearn`.
 
     Parameters
@@ -110,23 +110,23 @@ def load_dataset(
     import shutil
 
     # RUTA DEL MODULO DONDE SE ALMACENAN LOS DATASET
-    path = os.path.dirname(datasets.__file__)
+    path_sklearn = os.path.dirname(datasets.__file__)
 
     if not file_name_data == None:
-        dst_data = f"{path}\\data\\{file_name_data}"
+        path_sklearn_data = f"{path_sklearn}\\data\\{file_name_data}"
         # VERIFICAMOS SI EL ARCHIVO EXISTE Y LO ELIMINAMOS
-        if _checkFileExistance(dst_data):
-            os.remove(dst_data)
+        if _checkFileExistance(path_sklearn_data):
+            os.remove(path_sklearn_data)
         # COPIAMOS EL ARCHIVO A LA RUTA
-        shutil.copyfile(f"{dir_data}\\{file_name_data}", dst_data)
+        shutil.copyfile(f"{dir_data}\\{file_name_data}", path_sklearn_data)
 
     if not file_name_desc == None:
-        dst_desc = f"{path}\\descr\\{file_name_desc}"
+        path_sklearn_desc = f"{path_sklearn}\\descr\\{file_name_desc}"
         # VERIFICAMOS SI EL ARCHIVO EXISTE Y LO ELIMINAMOS
-        if _checkFileExistance(dst_desc):
-            os.remove(dst_desc)
+        if _checkFileExistance(path_sklearn_desc):
+            os.remove(path_sklearn_desc)
         # COPIAMOS EL ARCHIVO A LA RUTA
-        shutil.copyfile(f"{dir_data}\\{file_name_desc}", dst_desc)
+        shutil.copyfile(f"{dir_data}\\{file_name_desc}", path_sklearn_desc)
 
     return _load_file(
         file_data=file_name_data,
@@ -161,22 +161,18 @@ def _checkFileExistance(filePath):
 if __name__ == "__main__":
     """Metodo de entrada para probar la carga de dataset a memoria"""
 
-    import os
-
-    path = f"{os.path.dirname(__file__)}\\data"
-
     # DATASET DEL TIPO X,y
-    columns = ["SEMESTRE", "CALIFICACION"]
+    clmn = ["SEMESTRE", "CALIFICACION"]
     X, y = load_dataset(
-        dir_data=path,
-        columns=columns,
+        dir_data=PATH_DATA(),
+        columns=clmn,
         file_name_data="calificacion.csv",
         return_X_y=True,
     )
     print(X, y)
 
-    # RUTA FUETE
-    columns = [
+    # DEL TIPO DATASET DE CLASIFICACION
+    clmn = [
         "alcohol",
         "malic_acid",
         "ash",
@@ -192,9 +188,9 @@ if __name__ == "__main__":
         "proline",
     ]
     data = load_dataset(
-        dir_data=path,
+        dir_data=PATH_DATA(),
         file_name_data="zoo.csv",
         file_name_desc="zoo.rst",
-        columns=columns,
+        columns=clmn,
     )
     print(data)

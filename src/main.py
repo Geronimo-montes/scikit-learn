@@ -1,9 +1,9 @@
 import sys
 from typing import List
 
-from performance_test.performance_test import run as pt_run
-from calificacion_reg_lin.calificacion_reg_linel import run as crl_run
-from clasificador_alumnos.clasificador_alumnos import run_clf_alumnos as clf_alum_run
+from practicas.pract_01 import pract_01_run
+from practicas.pract_02 import pract_02_run
+from practicas.pract_03 import pract_03_run
 
 
 class Main:
@@ -12,13 +12,13 @@ class Main:
         print(num_prac)
         # PRACTICA #1
         if "1" in num_prac:
-            pt_run()
+            pract_01_run()
         # PRACTICA #2
         if "2" in num_prac:
-            crl_run()
+            pract_02_run()
         # PRACTICA #3
         if "3" in num_prac:
-            clf_alum_run()
+            pract_03_run()
 
 
 if __name__ == "__main__":

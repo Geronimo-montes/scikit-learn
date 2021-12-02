@@ -63,7 +63,7 @@ def plot_CM(
     report,
     title="Confusion matrix",
     cmap=None,
-    normalize=True,
+    normalize=False,
 ):
     """Despliega la matriz de confusión de manera grafica.
 

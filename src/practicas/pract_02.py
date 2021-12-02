@@ -6,23 +6,23 @@
 ° Predecir el 9no semestre con el modelo y graficarlo junto con la tendencia de datos
 ° Describir la predicción (acertada. no acertada, regular)
 """
-import os
-from typing import List
 import numpy as np
-import matplotlib.pyplot as plt
 
+from utils.path import PATH_DATA
 from utils.load_data import load_dataset
+
+from typing import List
+from matplotlib import pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 
 
-def run():
-    path = f"{os.path.dirname(__file__)}\\data"
+def pract_02_run():
     file_data_x = "calificacion.csv"
     columns = ["SEMESTRE", "CALIFICACION"]
     # CARGAMOS LOS DATOS A MEMORIA INDICADO QUE RETORNO LOS DATOS DE LA FORMA X,y
     y, x = load_dataset(
-        dir_data=path,
+        dir_data=PATH_DATA(),
         columns=columns,
         file_name_data=file_data_x,
         return_X_y=True,
