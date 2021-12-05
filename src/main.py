@@ -4,6 +4,7 @@ from typing import List
 from practicas.pract_01 import pract_01_run
 from practicas.pract_02 import pract_02_run
 from practicas.pract_03 import pract_03_run
+from practicas.pract_04 import pract_04_run
 
 
 class Main:
@@ -19,6 +20,9 @@ class Main:
         # PRACTICA #3
         if "3" in num_prac:
             pract_03_run()
+        # PRACTICA #4
+        if "4" in num_prac:
+            pract_04_run()
 
 
 if __name__ == "__main__":

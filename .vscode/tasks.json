@@ -41,5 +41,15 @@
 				"isDefault": true,
 			}
 		},
+		{
+			"type": "pipenv",
+			"task": "prac4",
+			"problemMatcher": [],
+			"label": "Practica #4 Clasificador Estudiantes (New Dataset)",
+			"group": {
+				"kind": "build",
+				"isDefault": true,
+			}
+		},
 	]
 }
